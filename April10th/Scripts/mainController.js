@@ -1,0 +1,1 @@
+﻿myApp.controller("maincontroller", function ($scope) { $scope.message = "wocaonima"});
