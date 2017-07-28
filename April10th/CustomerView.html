@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+	<script src="Scripts/angular.js"></script>
+	<script type="text/javascript">
+		var ch = ["a","b"];
+		var app = angular.module("app", []);
+		app.directive("niMei", function () {
+			return {
+				restrict: "E",
+				scope: {
+					testname:'@',
+					name1: '@',
+					name2:'@'
+				},
+				link: function (scope) {
+					scope.choices = [];
+
+					scope.addNewChoice = function () {
+						
+						
+					};
+			
+					scope.add = function () {
+						//scope.choices.push(scope.n);
+						//ts.push(scope.n);
+						ch.push(scope.n);
+						console.log(ch);
+					}
+				},
+				templateUrl: 'EM.html'
+			}
+		});
+		
+		app.controller("homectrl", function ($scope) {
+			var ts = ['jone', 'dasdas'];
+			var t = ch;
+			console.log(t);
+			$scope.name1 = 'jone';
+			$scope.name2 = 'gee';
+			$scope.names = [];
+			$scope.names.push($scope.name1);
+			$scope.names.push($scope.name2);
+			$scope.aka = "asdadasda";
+		});
+	</script>
+</head>
+<body ng-app="app">
+	<div ng-controller="homectrl">
+		<input type="text" ng-model="aka" /><br />
+		<input type="text" ng-model="name1" /><br />
+		<input type="text" ng-model="name2" /><br />
+			<table>
+				<thead>
+					<tr>
+						<th>array</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="d in t">
+					<tr>
+						<td>{{d}}</td>
+					</tr>
+				</tbody>
+			</table>
+		<hr />
+		<div>
+			<ni-mei name1="{{name1}}" name2="{{name2}}" testname="{{aka}}" c="add()">{{names}}</ni-mei>
+		</div>
+	</div>
+</body>
+</html>

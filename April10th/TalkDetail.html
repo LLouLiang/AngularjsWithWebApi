@@ -1,0 +1,47 @@
+﻿<div>
+		<h1>{{total()}}</h1>
+		<div>
+			<table class="gridStyle" style="float:left">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Speaker</th>
+						<th>Venue</th>
+						<th>Duration</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="talk in talks">
+					<tr>
+						<td>{{talk.id}}</td>
+						<td>{{talk.name}}</td>
+						<td>{{talk.speaker}}</td>
+						<td>{{talk.venue}}</td>
+						<td>
+							<input type="text" ng-model="talk.Duration" ng-change="putIt(talk)" />
+						</td>
+						<td>
+							<button type="button" ng-click="deleteTalk(talk)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="width:50%;height:200px;float:right">
+			<table>
+				<thead>
+					<tr>
+						<th>Day</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="d in days track by $index">
+					<tr>
+						<td>{{d}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		 <br />
+		<div ng-grid="gridoption" class="gridStyle" style="width:50%; height:200px;float:left"></div>
+</div>

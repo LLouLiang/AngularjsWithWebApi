@@ -1,0 +1,10 @@
+﻿<div style="height:200px;">
+	<p>{{message}}</p>
+	<ul>
+		<li ng-repeat="talk in talks">
+			{{talk.id}} {{talk.name}}  {{talk.speaker}}  {{talk.venue}}  {{talk.Duration}}
+		</li>
+	</ul>
+	<div ng-grid="mygrid" class="gridStyle" style="height:200px;"> this is the select part</div>
+
+</div>
